@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head.ejs') %>
+</head>
+<body>
+  <header class="barra">
+    <h1>Uptask - Administrador de proyectos</h1>
+    <a href="/close-session">Cerrar Sesion</a>
+  </header>
+
+  <main class="contenedor">
+    <aside class="contenedor-proyectos">
+      <div class="panel crear-proyecto">
+        <a href="/new" class="boton">Nuevo Proyecto<span>+</span></a>
+      </div>
+      <div class="panel lista-proyectos">
+        <h2>Proyectos</h2>
+        <ul id="proyectos" class="proyectos">
+          <% if (projects.length) { %>
+            <% projects.forEach(p => { %>
+              <li><a href="/projects/<%= p.id %>"><%= p.name %></a></li>
+            <% }) %>
+          <% } %>
+        </ul>
+      </div>
+    </aside>
+    <%- body -%>
+  </main>
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>

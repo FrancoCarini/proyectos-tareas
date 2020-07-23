@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+<body class="login">
+  <div class="contenedor-formulario">
+    <h1>Crea tu cuenta en Uptask</h1>
+    
+    <% if (locals.messages.error) { %>
+      <div class="alertas">
+      <% locals.messages.error.forEach(e => { %>
+          <div class="alerta error"><p><%= e %></p></div>
+      <% }) %>
+    </div>
+    <% } %>
+    
+    <form class="caja caja-login" method="POST" action="/users/new">
+      <div class="campo">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Ingresa tu email" value="<%= typeof email !== 'undefined' ? email : '' %>">
+        
+      </div>
+      <div class="campo">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Ingresa tu Password" value="<%= typeof password !== 'undefined' ? password : '' %>">
+      </div>
+      <div class="campo">
+        <input class="boton" type="submit" value="Crear Cuenta">
+      </div>
+    </form>
+  </div>
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>

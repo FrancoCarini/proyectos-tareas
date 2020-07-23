@@ -1,0 +1,9 @@
+<% if (locals.messages) { %>
+  <div class="alertas">
+  <% for (const elem in locals.messages) {%>
+    <% messages[elem].forEach(el =>  { %>
+      <div class="alerta <%= elem %>"><p><%= el %></p></div>
+    <% }) %>
+  <% } %>
+</div>
+<% } %>

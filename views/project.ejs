@@ -1,0 +1,39 @@
+<div class="contenido-principal">
+  <h1><%= mainTitle %> - <%= project.name %></h1>
+
+  <%- include('./partials/errors.ejs') %>
+
+  <form class="agregar-tarea" action="/tasks/new" method="post">
+    <div class="campo">
+      <label for="task">Tarea:</label>
+      <input class="nombre-tarea" type="text" name="task" placeholder="Nombre tarea">
+      <input type="hidden" name="projectId" value="<%= project.id %>">
+    </div>
+    <div class="campo enviar">
+      <input class="boton nueva-tarea" type="submit" value="Agregar">
+    </div>
+  </form>
+
+  <div class="listado-pendientes">
+    <ul>
+      <% if (project.tasks) { %>
+        <% project.tasks.forEach(t => { %>
+          <li class="tarea" data-task=<%= t.id %>>
+            <p><%= t.name %></p>
+            <div class="acciones">
+              <i
+                class="<%= t.status ? 'far fa-check-circle completo' : 'far fa-check-circle' %>" 
+              ></i>
+              <i class="fas fa-trash"></i>
+            </div>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+  </div>
+
+  <div class="contenedor-acciones">
+      <a href="#" class="boton">Editar Proyecto</a>
+      <button id="eliminar-projecto" type="button" class="boton eliminar">Eliminar Proyecto</button>
+  </div>
+</div>

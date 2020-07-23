@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+<body class="login">
+  <div class="contenedor-formulario">
+    <h1><%= mainTitle %></h1>
+    <p>Ingresar tu nuevo password</p>
+
+    <form class="caja caja-login" method="POST">
+      <div class="campo">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Ingresa tu password">
+      </div>
+      <div class="campo enviar">
+        <input class="boton" type="submit" value="Restablecer Password">
+      </div>
+    </form>
+  </div>
+</body>
+</html>

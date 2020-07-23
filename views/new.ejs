@@ -1,0 +1,15 @@
+<div class="contenido-principal">
+  <h1><%= mainTitle %></h1>
+
+  <%- include('./partials/errors.ejs') %>
+
+  <form class="agregar-proyecto" method="POST" action="/new">
+    <div class="campo">
+      <label for="nombre">Nombre Proyecto:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Nombre proyecto">
+    </div>
+    <div class="campo enviar">
+      <input type="submit" value="Agregar" class="boton">
+    </div>
+  </form>
+</div>

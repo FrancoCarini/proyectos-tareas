@@ -1,0 +1,7 @@
+<% if (locals.errors) { %>
+  <% errors.forEach(e => { %>
+    <div class="alerta error">
+      <%= e.msg %>
+    </div>
+  <% }) %>
+<% } %>

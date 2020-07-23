@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head.ejs') %>
+</head>
+<body class="login">
+  <div class="contenedor-formulario">
+    <h1><%= mainTitle %></h1>
+    <p>Agrega tu email para reestablecer tu Contraseña</p>
+
+    <% if (locals.messages.error) { %>
+      <div class="alertas">
+      <% locals.messages.error.forEach(e => { %>
+          <div class="alerta error"><p><%= e %></p></div>
+      <% }) %>
+    </div>
+    <% } %>
+
+    <form class="caja caja-login" method="POST" action="/users/recover">
+      <div class="campo">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Ingresa tu email">
+      </div>
+      <div class="campo enviar">
+        <input class="boton" type="submit" value="Restablecer Password">
+      </div>
+      <div class="campo acciones">
+        <a href="/init-session">Login</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
